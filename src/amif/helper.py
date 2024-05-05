@@ -1,3 +1,5 @@
+import re
+
 title = "amif_helper_func.py"
 catalog_name = 'test_catalog'
 source_schema = 'bronze'
@@ -53,6 +55,23 @@ def get_cdc_input_arguments(data_dict: dict, table_name: str):
         A tuple containing the CDC source name and the joined primary keys.
     """
     return get_cdc_source(table_name), get_joined_primary_keys(data_dict, table_name)
+
+
+def camel_to_snake(name: str) -> str:
+    """Convert camel case to snake case.
+
+    Parameters
+    ----------
+    name : str
+        camel case string e.g. CamelCase
+
+    Returns
+    -------
+    str
+        snake cased string e.g. snake_case
+    """
+    name = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', name).lower()
+    return name
 
 # Example usage
 # cdc_get_operations(get_cdc_input_arguments(data_dict, 'table_name1'), {full_refresh}, True)
