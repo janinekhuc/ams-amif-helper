@@ -1,7 +1,7 @@
 import re
 from typing import Dict, List
 
-# TODO add more tests
+# TODO add more tests, docstrings
 
 
 def extract_from_cast_statement(part: str, selected_columns: List[str]):
