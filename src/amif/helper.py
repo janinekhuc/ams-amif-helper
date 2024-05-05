@@ -1,18 +1,6 @@
 title = "amif_helper_func.py"
-catalog_name = 'dmpf_dev'
+catalog_name = 'test_catalog'
 source_schema = 'bronze'
-
-data_dict = {
-    'chartofaccounts': {
-        'primary_key': ['ChartOfAccounts']
-    },
-    'chartofaccountstext': {
-        'primary_key': ['ChartOfAccounts', 'Language']
-    },
-    'commitmentitem': {
-        'primary_key': ['FinancialManagementArea', 'FinMgmtAreaFiscalYear', 'CommitmentItem', 'ValidityStartDate']
-    }
-}
 
 
 def get_cdc_source(table_name: str) -> str:
