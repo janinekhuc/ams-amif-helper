@@ -1,0 +1,20 @@
+[build-system]
+requires = [
+    "setuptools>=62.0",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "amif"
+version = "0.0.1"
+description = "Support functions for AMS ami-f team"
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+    "pandas==1.4.4"
+]
+
+[project.optional-dependencies]
+dev = ["pytest==7.4.4"]
