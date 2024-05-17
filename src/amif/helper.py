@@ -5,7 +5,7 @@ catalog_name = 'test_catalog'
 source_schema = 'bronze'
 
 
-def get_cdc_source(table_name: str) -> str:
+def get_cdc_source(table_name: str, catalog_name='test_catalog', source_schema='bronze') -> str:
     """Returns the CDC source name based on the given table name.
 
     Parameters
@@ -39,7 +39,7 @@ def get_joined_primary_keys(data_dict: dict, table_name: str) -> str:
     return ",".join(data_dict[table_name]['primary_key'])
 
 
-def get_cdc_input_arguments(data_dict: dict, table_name: str):
+def get_cdc_input_arguments(data_dict: dict, table_name: str, catalog_name='test_catalog', source_schema='bronze'):
     """Returns a tuple containing the CDC source name and the joined primary keys for a given table.
 
     Parameters
@@ -54,7 +54,7 @@ def get_cdc_input_arguments(data_dict: dict, table_name: str):
     tuple
         A tuple containing the CDC source name and the joined primary keys.
     """
-    return get_cdc_source(table_name), get_joined_primary_keys(data_dict, table_name)
+    return get_cdc_source(table_name, catalog_name, source_schema), get_joined_primary_keys(data_dict, table_name)
 
 
 def camel_to_snake(name: str) -> str:
@@ -74,5 +74,5 @@ def camel_to_snake(name: str) -> str:
     return name
 
 # Example usage
-# cdc_get_operations(get_cdc_input_arguments(data_dict, 'table_name1'), {full_refresh}, True)
-# cdc_get_operations(get_cdc_input_arguments(data_dict, 'table_name2'), {full_refresh}, True)
+# catalog_source = ('test','bronzes')
+# cdc_get_operations(*get_cdc_input_arguments(data_dict, "chartofaccounts", *catalog_source), {full_refresh}, True)
