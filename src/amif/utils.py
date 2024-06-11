@@ -11,7 +11,7 @@ def check_elements_in_list(elements_to_check: list, elements_expected: list) -> 
     return [elem in elements_to_check for elem in elements_expected]
 
 
-def _check_required_fields(fields_to_check: list, fields_expected: list):
+def check_required_fields(fields_to_check: list, fields_expected: list):
     """Assert whether required fields are in a given list.
 
     Parameters

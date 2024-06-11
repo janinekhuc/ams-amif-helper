@@ -1,6 +1,6 @@
 import pyspark.sql.functions as F
 import pyspark.sql as p
-from amif.utils import _check_required_fields
+from amif.utils import check_required_fields
 
 
 def create_dq_body(df: p.DataFrame, dq_meta_dict: dict):
