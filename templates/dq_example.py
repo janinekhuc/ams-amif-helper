@@ -2,7 +2,7 @@
 
 from amif.dq_helper import create_dq_body, create_df_header
 from amif.utils import append_delta
-# replace with sys.append & corresponding module if running in on databricks
+# replace with sys.append & corresponding module if running on databricks
 
 # widget input
 dbutils.widgets.text("environment", "dev")
